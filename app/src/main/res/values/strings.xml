@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Fruit App</string>
+    <string name="action_settings">Preferences</string>
+    <string name="fruit_detail_fragment_title">Fruit Details</string>
+    <string name="add_fruit_fragment_title">Add Fruit</string>
+    <string name="add_new_fruit">Add Fruit</string>
+    <!-- test values -->
+    <string name="test_text">Text</string>
+    <string name="test_number">0.0</string>
+    <!-- string form labels -->
+    <string name="name_label">Name</string>
+    <string name="genus_label">Genus</string>
+    <string name="family_label">Family</string>
+    <string name="carbohydrates_label">Carbs.</string>
+    <string name="fat_label">Fat</string>
+    <string name="calories_label">Calories</string>
+    <string name="protein_label">Proteins</string>
+    <string name="sugar_label">Sugar</string>
+    <!-- string input hint -->
+    <string name="fruit_name_hint">Fruit Name <font color='#FF0000'>*</font></string>
+    <string name="fruit_genus_hint">Fruit Genus <font color='#FF0000'>*</font></string>
+    <string name="fruit_family_hint">Fruit Family <font color='#FF0000'>*</font></string>
+    <string name="fruit_carbohydrates_hint">Fruit Carbohydrates <font color='#FF0000'>*</font></string>
+    <string name="fruit_fat_hint">Fruit Fat <font color='#FF0000'>*</font></string>
+    <string name="fruit_calories_hint">Fruit Calories <font color='#FF0000'>*</font></string>
+    <string name="fruit_protein_hint">Fruit Proteins <font color='#FF0000'>*</font></string>
+    <string name="fruit_sugar_hint">Fruit Sugar <font color='#FF0000'>*</font></string>
+    <!-- btn strings -->
+    <string name="save_action">Save</string>
+</resources>

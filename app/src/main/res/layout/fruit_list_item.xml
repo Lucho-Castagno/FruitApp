@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="fruit"
+            type="com.example.fruitapp.domain.model.FruitItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fruit_item"
+        android:layout_margin="12dp"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/cardView"
+        app:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/fruit_image"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/ic_launcher_foreground"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/fruit_name"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/fruit_image"
+                android:layout_toRightOf="@id/fruit_image"
+                android:layout_alignParentTop="true"
+                android:textSize="30sp"
+                android:text="@{fruit.name}"
+                tools:text="@string/test_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/fruit_genus"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/fruit_image"
+                android:layout_toRightOf="@id/fruit_image"
+                android:layout_below="@id/fruit_name"
+                android:text="@{fruit.family}"
+                tools:text="@string/test_text"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:id="@+id/fruit_family"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/fruit_image"
+                android:layout_toRightOf="@id/fruit_image"
+                android:layout_below="@id/fruit_genus"
+                android:text="@{fruit.genus}"
+                tools:text="@string/test_text"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
