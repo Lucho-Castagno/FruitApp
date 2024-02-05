@@ -4,7 +4,7 @@ import com.example.fruitapp.data.local.entities.FruitEntity
 import com.example.fruitapp.data.remote.model.FruitModel
 
 data class FruitItem(
-    val id: Int,
+    val id: Int = 0,
     val genus: String,
     val name: String,
     val family: String,
