@@ -5,12 +5,16 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.fruitapp.data.local.entities.FruitEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FruitDao {
 
     @Query("SELECT * FROM fruit_table ORDER BY name ASC")
-    suspend fun getAllFruits(): List<FruitEntity>
+    fun getAllFruits(): Flow<List<FruitEntity>>
+
+    @Query("SELECT * FROM fruit_table WHERE id = :id")
+    fun getFruit(id: Int): Flow<FruitEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFruit(fruit: FruitEntity)

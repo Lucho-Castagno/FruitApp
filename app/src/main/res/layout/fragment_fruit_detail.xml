@@ -53,6 +53,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:text="@{fruit.calories}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -89,6 +90,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:text="@{String.valueOf(fruit.protein)}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -125,6 +127,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:text="@{String.valueOf(fruit.carbohydrates)}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -173,6 +176,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:text="@{String.valueOf(fruit.fat)}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -209,6 +213,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:text="@{String.valueOf(fruit.sugar)}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>

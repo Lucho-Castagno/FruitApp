@@ -19,7 +19,6 @@ class GetFruitsUseCase @Inject constructor(
              * Solo por esta vez, el delete es un DELETE ALL FROM DATABASE, cuando en lo general se
              * tendria en cuenta un WHERE.
              */
-            Log.i("GET_FRUIT_USE_CASE", fruits.toString())
             repository.clearFruits()
             repository.insertFruits(fruits.map { it.toDatabase() })
             fruits

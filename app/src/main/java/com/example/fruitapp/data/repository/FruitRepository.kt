@@ -22,6 +22,11 @@ class FruitRepository @Inject constructor(
         return response.map { it.toDomain() }
     }
 
+    suspend fun getFruitFromDatabase(id: Int): FruitItem {
+        val response: FruitEntity = fruitDao.getFruit(id)
+        return response.toDomain()
+    }
+
     suspend fun  insertFruits(fruits: List<FruitEntity>) {
         fruitDao.insertAllFruits(fruits)
     }
