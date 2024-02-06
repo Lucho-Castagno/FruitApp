@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="fruit"
-            type="com.example.fruitapp.domain.model.FruitItem" />
+            name="viewModel"
+            type="com.example.fruitapp.presentation.feature.FruitViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,7 @@
             layout="@layout/fruit_list_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:fruit="@{fruit}" />
+            app:fruit="@{viewModel.selectedFruit}" />
 
         <LinearLayout
             android:id="@+id/nutrition_linearLayout_1"
@@ -53,7 +53,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@{fruit.calories}"
+                        app:intToString="@{viewModel.selectedFruit.calories}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -90,7 +90,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@{String.valueOf(fruit.protein)}"
+                        app:doubleToString="@{viewModel.selectedFruit.protein}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -127,7 +127,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@{String.valueOf(fruit.carbohydrates)}"
+                        app:doubleToString="@{viewModel.selectedFruit.carbohydrates}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -176,7 +176,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@{String.valueOf(fruit.fat)}"
+                        app:doubleToString="@{viewModel.selectedFruit.fat}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>
@@ -213,7 +213,7 @@
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold"
-                        android:text="@{String.valueOf(fruit.sugar)}"
+                        app:doubleToString="@{viewModel.selectedFruit.sugar}"
                         tools:text="@string/test_number"/>
 
                 </androidx.cardview.widget.CardView>

@@ -16,6 +16,8 @@ data class FruitEntity(
     val name: String,
     @ColumnInfo(name = "family")
     val family: String,
+    @ColumnInfo(name = "order")
+    val order: String,
     @ColumnInfo(name = "carbohydrates")
     val carbohydrates: Double,
     @ColumnInfo(name = "protein")
@@ -33,6 +35,7 @@ fun FruitItem.toDatabase() = FruitEntity(
     genus = genus,
     name = name,
     family = family,
+    order = order,
     carbohydrates = carbohydrates,
     protein = protein,
     fat = fat,

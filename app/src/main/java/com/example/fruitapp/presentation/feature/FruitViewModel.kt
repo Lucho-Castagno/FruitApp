@@ -22,6 +22,7 @@ class FruitViewModel @Inject constructor(
 ) : ViewModel() {
 
     val fruitsModel = MutableLiveData<List<FruitItem>>()
+    val selectedFruit = MutableLiveData<FruitItem>()
     val isLoading = MutableLiveData<Boolean>()
 
     private fun insertFruit(fruit: FruitItem) {
@@ -31,52 +32,52 @@ class FruitViewModel @Inject constructor(
     }
 
     private fun getNewFruitEntry(fruitName: String, fruitFamily: String, fruitGenus: String,
-                                 fruitCalories: String, fruitCarbohydrates: String, fruitFat: String,
-                                 fruitProtein: String, fruitSugar: String): FruitItem {
+                                 fruitOrder: String, fruitCalories: String,
+                                 fruitCarbohydrates: String, fruitFat: String, fruitProtein: String,
+                                 fruitSugar: String): FruitItem {
         return FruitItem(genus = fruitGenus, name = fruitName, family = fruitFamily,
-            carbohydrates = fruitCarbohydrates.toDouble(), protein =  fruitProtein.toDouble(),
-            fat = fruitFat.toDouble(), calories = fruitCalories.toInt(),
-            sugar = fruitSugar.toDouble())
+            order = fruitOrder, carbohydrates = fruitCarbohydrates.toDouble(),
+            protein =  fruitProtein.toDouble(), fat = fruitFat.toDouble(),
+            calories = fruitCalories.toInt(), sugar = fruitSugar.toDouble())
     }
 
-    fun onCreate() {
+    fun onCreate(adapter: FruitListAdapter) {
         viewModelScope.launch {
             isLoading.value = true
             val result = getFruitsUseCase()
             if (result.isNotEmpty()) {
                 fruitsModel.value = result
+                adapter.submitList(result)
                 isLoading.value = false
             }
         }
     }
 
-    fun retrieveFruit(id: Int): LiveData<FruitItem?> {
-        val fruitLiveData = MutableLiveData<FruitItem?>()
+    fun retrieveFruit(id: Int) {
         viewModelScope.launch {
             try {
-                val fruitItem = getFruitUseCase(id)
-                fruitLiveData.value = fruitItem
+                selectedFruit.value = getFruitUseCase(id)
+                Log.i("FRUIT__ITEM_RETRIEVE_ITEM", selectedFruit.value.toString())
             } catch (e: Exception) {
-                fruitLiveData.value = null
+                e.printStackTrace()
             }
         }
-        return fruitLiveData
     }
 
-    fun isEntryValid(fruitName: String, fruitFamily: String, fruitGenus: String,
+    fun isEntryValid(fruitName: String, fruitFamily: String, fruitGenus: String, fruitOrder: String,
                       fruitCalories: String, fruitCarbohydrates: String, fruitFat: String,
                       fruitProtein: String, fruitSugar: String): Boolean {
         return !(fruitName.isBlank() || fruitFamily.isBlank() || fruitGenus.isBlank() ||
-                fruitCalories.isBlank() || fruitCarbohydrates.isBlank() || fruitFat.isBlank() ||
-                fruitProtein.isBlank() || fruitSugar.isBlank())
+                fruitOrder.isBlank() || fruitCalories.isBlank() || fruitCarbohydrates.isBlank() ||
+                fruitFat.isBlank() || fruitProtein.isBlank() || fruitSugar.isBlank())
     }
 
-    fun addNewFruit(fruitName: String, fruitFamily: String, fruitGenus: String,
+    fun addNewFruit(fruitName: String, fruitFamily: String, fruitGenus: String, fruitOrder: String,
                     fruitCalories: String, fruitCarbohydrates: String, fruitFat: String,
                     fruitProtein: String, fruitSugar: String) {
         val newFruit = getNewFruitEntry(
-            fruitName, fruitFamily, fruitGenus, fruitCalories, fruitCarbohydrates, fruitFat,
-            fruitProtein, fruitSugar
+            fruitName, fruitFamily, fruitGenus, fruitOrder, fruitCalories, fruitCarbohydrates,
+            fruitFat, fruitProtein, fruitSugar
         )
         insertFruit(newFruit)
     }

@@ -1,5 +1,7 @@
 package com.example.fruitapp.data.repository
 
+import android.util.Log
+import androidx.lifecycle.asLiveData
 import com.example.fruitapp.data.local.dao.FruitDao
 import com.example.fruitapp.data.local.entities.FruitEntity
 import com.example.fruitapp.data.remote.model.FruitModel
@@ -27,8 +29,16 @@ class FruitRepository @Inject constructor(
         return response.toDomain()
     }
 
-    suspend fun  insertFruits(fruits: List<FruitEntity>) {
+    suspend fun insertFruitsOnDatabase(fruits: List<FruitEntity>) {
         fruitDao.insertAllFruits(fruits)
+    }
+
+    suspend fun insertFruitOnDatabase(fruit: FruitEntity) {
+        fruitDao.insertFruit(fruit)
+    }
+
+    suspend fun insertFruitOnApi(fruit: FruitModel) {
+        //api.putFruit()
     }
 
     suspend fun clearFruits() {

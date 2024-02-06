@@ -23,6 +23,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_name_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -32,7 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textAutoComplete|textCapWords"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -41,6 +45,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_family_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_name_label">
@@ -50,7 +57,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textAutoComplete|textCapWords"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -59,6 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_genus_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_family_label">
@@ -68,7 +79,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="textAutoComplete|textCapWords"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fruit_order_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fruit_order_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fruit_genus_label">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fruit_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textAutoComplete|textCapWords"
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -77,16 +111,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_carbohydrates_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fruit_genus_label">
+                app:layout_constraintTop_toBottomOf="@+id/fruit_order_label">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fruit_carbohydrates"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:singleLine="true" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -95,6 +133,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_protein_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_carbohydrates_label">
@@ -103,8 +144,9 @@
                     android:id="@+id/fruit_protein"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:singleLine="true" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -113,6 +155,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_fat_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_protein_label">
@@ -121,8 +166,9 @@
                     android:id="@+id/fruit_fat"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:singleLine="true" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -131,6 +177,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_calories_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_fat_label">
@@ -140,7 +189,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:inputType="number"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -149,6 +199,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/fruit_sugar_hint"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fruit_calories_label">
@@ -157,8 +210,9 @@
                     android:id="@+id/fruit_sugar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:inputType="number"
-                    android:singleLine="true" />
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"
+                    android:textColor="@color/black"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

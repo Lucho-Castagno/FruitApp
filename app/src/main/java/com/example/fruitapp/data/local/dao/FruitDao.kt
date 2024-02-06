@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.Flow
 interface FruitDao {
 
     @Query("SELECT * FROM fruit_table ORDER BY name ASC")
-    fun getAllFruits(): Flow<List<FruitEntity>>
+    suspend fun getAllFruits(): List<FruitEntity>
 
     @Query("SELECT * FROM fruit_table WHERE id = :id")
-    fun getFruit(id: Int): Flow<FruitEntity>
+    suspend fun getFruit(id: Int): FruitEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFruit(fruit: FruitEntity)

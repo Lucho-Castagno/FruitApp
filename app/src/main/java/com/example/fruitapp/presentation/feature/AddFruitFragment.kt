@@ -9,9 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.fruitapp.R
 import com.example.fruitapp.databinding.FragmentAddFruitBinding
+import com.example.fruitapp.databinding.FragmentFruitDetailBinding
 import com.example.fruitapp.databinding.FragmentFruitListBinding
 import com.example.fruitapp.domain.model.FruitItem
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddFruitFragment : Fragment() {
 
     private val viewModel: FruitViewModel by viewModels()
@@ -26,7 +29,9 @@ class AddFruitFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_fruit, container, false)
+        _binding =  FragmentAddFruitBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
 
     private fun isEntryValid(): Boolean {
@@ -34,6 +39,7 @@ class AddFruitFragment : Fragment() {
             binding.fruitName.toString(),
             binding.fruitFamily.toString(),
             binding.fruitGenus.toString(),
+            binding.fruitOrder.toString(),
             binding.fruitCalories.toString(),
             binding.fruitCarbohydrates.toString(),
             binding.fruitFat.toString(),
@@ -48,6 +54,7 @@ class AddFruitFragment : Fragment() {
                 binding.fruitName.toString(),
                 binding.fruitFamily.toString(),
                 binding.fruitGenus.toString(),
+                binding.fruitOrder.toString(),
                 binding.fruitCalories.toString(),
                 binding.fruitCarbohydrates.toString(),
                 binding.fruitFat.toString(),
@@ -56,6 +63,13 @@ class AddFruitFragment : Fragment() {
             )
             val action = AddFruitFragmentDirections.actionAddFruitFragmentToFruitListFragment()
             this.findNavController().navigate(action)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.saveAction.setOnClickListener {
+            addNewFruit()
         }
     }
 

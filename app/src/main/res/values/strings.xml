@@ -20,6 +20,7 @@
     <string name="fruit_name_hint">Fruit Name <font color='#FF0000'>*</font></string>
     <string name="fruit_genus_hint">Fruit Genus <font color='#FF0000'>*</font></string>
     <string name="fruit_family_hint">Fruit Family <font color='#FF0000'>*</font></string>
+    <string name="fruit_order_hint">Fruit Order <font color='#FF0000'>*</font></string>
     <string name="fruit_carbohydrates_hint">Fruit Carbohydrates <font color='#FF0000'>*</font></string>
     <string name="fruit_fat_hint">Fruit Fat <font color='#FF0000'>*</font></string>
     <string name="fruit_calories_hint">Fruit Calories <font color='#FF0000'>*</font></string>
