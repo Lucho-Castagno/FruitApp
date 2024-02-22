@@ -20,7 +20,7 @@ class GetFruitsUseCase @Inject constructor(
              * tendria en cuenta un WHERE.
              */
             repository.clearFruits()
-            repository.insertFruits(fruits.map { it.toDatabase() })
+            repository.insertFruitsOnDatabase(fruits.map { it.toDatabase() })
             fruits
         } else {
             repository.getAllFruitsFromDatabase()

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.fruitapp.R
@@ -21,45 +22,45 @@ class AddFruitFragment : Fragment() {
 
     lateinit var fruit: FruitItem
 
-    private var _binding: FragmentAddFruitBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentAddFruitBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding =  FragmentAddFruitBinding.inflate(inflater, container, false)
+        binding =  DataBindingUtil.inflate(inflater, R.layout.fragment_add_fruit, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
         return binding.root
     }
 
     private fun isEntryValid(): Boolean {
         return viewModel.isEntryValid(
-            binding.fruitName.toString(),
-            binding.fruitFamily.toString(),
-            binding.fruitGenus.toString(),
-            binding.fruitOrder.toString(),
-            binding.fruitCalories.toString(),
-            binding.fruitCarbohydrates.toString(),
-            binding.fruitFat.toString(),
-            binding.fruitProtein.toString(),
-            binding.fruitSugar.toString()
+            binding.fruitName.text.toString(),
+            binding.fruitFamily.text.toString(),
+            binding.fruitGenus.text.toString(),
+            binding.fruitOrder.text.toString(),
+            binding.fruitCalories.text.toString(),
+            binding.fruitCarbohydrates.text.toString(),
+            binding.fruitFat.text.toString(),
+            binding.fruitProtein.text.toString(),
+            binding.fruitSugar.text.toString()
         )
     }
 
     private fun addNewFruit() {
         if (isEntryValid()) {
             viewModel.addNewFruit(
-                binding.fruitName.toString(),
-                binding.fruitFamily.toString(),
-                binding.fruitGenus.toString(),
-                binding.fruitOrder.toString(),
-                binding.fruitCalories.toString(),
-                binding.fruitCarbohydrates.toString(),
-                binding.fruitFat.toString(),
-                binding.fruitProtein.toString(),
-                binding.fruitSugar.toString()
+                binding.fruitName.text.toString(),
+                binding.fruitFamily.text.toString(),
+                binding.fruitGenus.text.toString(),
+                binding.fruitOrder.text.toString(),
+                binding.fruitCalories.text.toString(),
+                binding.fruitCarbohydrates.text.toString(),
+                binding.fruitFat.text.toString(),
+                binding.fruitProtein.text.toString(),
+                binding.fruitSugar.text.toString()
             )
             val action = AddFruitFragmentDirections.actionAddFruitFragmentToFruitListFragment()
             this.findNavController().navigate(action)

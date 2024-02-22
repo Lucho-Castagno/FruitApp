@@ -24,6 +24,7 @@ class FruitViewModel @Inject constructor(
     val fruitsModel = MutableLiveData<List<FruitItem>>()
     val selectedFruit = MutableLiveData<FruitItem>()
     val isLoading = MutableLiveData<Boolean>()
+    val fruitFormViewState = MutableLiveData<FruitFormViewState>()
 
     private fun insertFruit(fruit: FruitItem) {
         viewModelScope.launch {

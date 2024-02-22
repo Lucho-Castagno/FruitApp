@@ -11,6 +11,6 @@ class CreateFruitUseCase @Inject constructor(
 
     suspend operator fun invoke(fruit: FruitItem) {
         // crear fruitItem -> fruitModel
-        repository.insertFruitOnApi(fruit.toModel())
+        //repository.insertFruitOnApi(fruit.toModel())
     }
 }
